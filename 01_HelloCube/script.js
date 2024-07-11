@@ -49,8 +49,16 @@ const ascpect ={
     height: window.innerHeight,
 }
 //                                         fov        aspect ratio(w/h)    near  far   
-const camera = new THREE.PerspectiveCamera(75, ascpect.width/ascpect.height, 1, 2000)
-
+const camera = new THREE.PerspectiveCamera(75, ascpect.width/ascpect.height, 1, 2000);
+camera.position.z = 3;
+camera.position.x = 1;
+camera.position.y = 1;
 scene.add(camera)
 
 
+// Renderer__________________________________________________________________________________________________________________________________________
+
+const canvas = document.querySelector(".draw"); //select the canvas element 
+const renderer = new THREE.WebGLRenderer({ canvas }); // add the WebGlRenderer
+renderer.setSize(ascpect.width, ascpect.height) //Rederer size
+renderer.render(scene, camera) //display what the camera in the scene captured
