@@ -4,11 +4,12 @@ console.log(THREE)
 // We have 4 elements which are
 // Scene Mesh(Object) Camera Renderer
 
-// Scene_________________________________________________________________________________________________________________________
+// Scene_____________________________________________________________________________________________________________________________________________
 
 const scene = new THREE.Scene()
 console.log(scene)
 
+// Mesh______________________________________________________________________________________________________________________________________________
 
 // Object is Mesh -->  https://threejs.org/docs/index.html#api/en/objects/Mesh
 // fist thing to do define the shape (geometry) , and the second thing descripe to material
@@ -20,13 +21,36 @@ const mesh = new THREE.Mesh( geometry, material );
 scene.add( mesh );
 */ 
 
-
-// Mesh__________________________________________________________________________________________________________________________
 const geometry = new THREE.BoxGeometry(1, 1, 1)
 const material = new THREE.MeshBasicMaterial({color:"orange"})
 const mesh = new THREE.Mesh(geometry, material);
 
 scene.add(mesh);
 
+// Camera____________________________________________________________________________________________________________________________________________
+
+// Than camera, we will use perspectiveCamera for now  ---> https://threejs.org/docs/index.html?q=Came#api/en/cameras/PerspectiveCamera
+/*
+const camera = new THREE.PerspectiveCamera( 45, width / height, 1, 1000 );
+scene.add( camera );
+*/
+
+//Here  is the constructor of camera constructorOfCamera
+/*
+PerspectiveCamera( fov : Number, aspect : Number, near : Number, far : Number )
+fov — Camera frustum vertical field of view.
+aspect — Camera frustum aspect ratio.(w/h)
+near — Camera frustum near plane.
+far — Camera frustum far plane.
+*/
+
+const ascpect ={
+    width: window.innerWidth,
+    height: window.innerHeight,
+}
+//                                         fov        aspect ratio(w/h)    near  far   
+const camera = new THREE.PerspectiveCamera(75, ascpect.width/ascpect.height, 1, 2000)
+
+scene.add(camera)
 
 
