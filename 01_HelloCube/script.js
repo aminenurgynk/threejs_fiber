@@ -26,7 +26,8 @@ const material = new THREE.MeshBasicMaterial({color:"orange"})
 const mesh = new THREE.Mesh(geometry, material);
 mesh.position.z = 1;
 mesh.scale.x = 3;
-mesh.rotation.x = Math.PI * 0.25 // 1/8 turn (positif side) check the image -> \image\routation.png
+mesh.rotation.x = Math.PI * 0.25 // check the image -> \image\routation.png
+mesh.rotation.y = Math.PI * 1.2 // 1/8 turn
 scene.add(mesh);
 
 
