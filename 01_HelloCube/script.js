@@ -24,11 +24,25 @@ scene.add( mesh );
 const geometry = new THREE.BoxGeometry(1, 1, 1)
 const material = new THREE.MeshBasicMaterial({color:"orange"})
 const mesh = new THREE.Mesh(geometry, material);
-mesh.position.z = 1;
-mesh.scale.x = 3;
-mesh.rotation.x = Math.PI * 0.25 // check the image -> \image\routation.png
-mesh.rotation.y = Math.PI * 1.2 // 1/8 turn
+
+// Create wireframe material with blue color
+const wireframeMaterial = new THREE.MeshBasicMaterial({ color: "blue", linewidth: 10 , wireframe: true });
+const wireframe = new THREE.Mesh(geometry, wireframeMaterial);
+
+
+// Positioning and scaling (if needed)
+mesh.position.set(1, 1, 1);
+mesh.scale.set(2, 2, 2);
+
+wireframe.position.set(1,1,1);
+wireframe.scale.set(2, 2, 2);
+
+
+//mesh.rotation.x = Math.PI * 0.25 // check the image -> \image\routation.png
+//mesh.rotation.y = Math.PI * 1.2 // 1/8 turn */
 scene.add(mesh);
+
+scene.add(wireframe);
 
 
 // we havee methods of course, position, scale, routation , you can check the methods documentation -> \image\routation.png
@@ -57,10 +71,10 @@ const ascpect ={
     height: window.innerHeight,
 }
 //                                         fov        aspect ratio(w/h)    near  far   
-const camera = new THREE.PerspectiveCamera(75, ascpect.width/ascpect.height, 1, 2000);
-camera.position.z = 5;
-camera.position.x = 1;
-camera.position.y = 1;
+const camera = new THREE.PerspectiveCamera(75, ascpect.width/ascpect.height, 1, 20000);
+camera.position.z = 10;
+camera.position.x = -5;
+camera.position.y = 2;
 scene.add(camera)
 
 

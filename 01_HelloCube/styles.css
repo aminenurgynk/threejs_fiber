@@ -3,9 +3,9 @@
     padding: 0px;
 }
 
-body {
+.body {
     background-color: black;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .draw {
